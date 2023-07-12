@@ -50,13 +50,14 @@ export function InternalTeamActivityChart({ agentsName, activityAvg }: any) {
         borderWidth: 2,
       },
     },
-    // scales: {
-    //   x: {
-    //     ticks: {
-    //       display: false, // Hide x-axis labels
-    //     },
-    //   },
-    // },
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 90,
+          minRotation: 90,
+        },
+      },
+    },
 
     plugins: {
       legend: {
@@ -103,7 +104,7 @@ export function InternalTeamActivityChart({ agentsName, activityAvg }: any) {
   return (
     <div
       style={{
-        width: agentsName.length < 500 ? "100%" : agentsName.length * 15,
+        width: agentsName.length < 500 ? "100%" : agentsName.length * 20,
       }}
       className="mx-auto h-[450px] pt-12 "
     >

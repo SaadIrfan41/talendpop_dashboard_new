@@ -177,7 +177,7 @@ const AgentsWorkforceReport = () => {
           <div className=" mt-10  min-h-[480px] rounded-2xl border text-[#163143]   ">
             <div className="flex items-center px-4 py-4 ">
               <h3 className=" text-base font-extrabold">
-                Rolling Avg. Internal Team Activity Report (Select Due Filter)
+                Rolling Avg. Internal Team Activity Report
               </h3>
               <div className="ml-auto flex items-center gap-3">
                 <ExpandIcon />

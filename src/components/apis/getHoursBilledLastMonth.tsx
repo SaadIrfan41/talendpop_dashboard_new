@@ -21,17 +21,36 @@ export const getHoursBilledLastMonth = async (
   if (hasCookie("talentPOP_token")) {
     accessToken = getCookie("talentPOP_token");
   }
+  const clientQueryParam = new URLSearchParams();
+
+  filterClientName.forEach((client) => {
+    clientQueryParam.append("client", client);
+  });
+
+  const agentsQueryParam = new URLSearchParams();
+
+  filterAgentsName.forEach((agent) => {
+    agentsQueryParam.append("agentname", agent);
+  });
+  const teamLeadQueryParam = new URLSearchParams();
+
+  filterTeamLeadsName.forEach((teamlead) => {
+    teamLeadQueryParam.append("teamlead", teamlead);
+  });
+  const OM_QueryParam = new URLSearchParams();
+
+  filterOMsName.forEach((OM) => {
+    OM_QueryParam.append("operationmanager", OM);
+  });
+  const CSM_QueryParam = new URLSearchParams();
+
+  filterCSMsName.forEach((CSM) => {
+    CSM_QueryParam.append("customersuccessmanager", CSM);
+  });
+
   try {
     const res = await fetch(
-      `http://18.237.25.116:8000/hour-billed-per-client-last-month?client=${
-        filterClientName[0] || ""
-      }&agentname=${filterAgentsName[0] || ""}&teamlead=${
-        filterTeamLeadsName[0] || ""
-      }&operationmanager=${filterOMsName[0] || ""}&customersuccessmanager=${
-        filterCSMsName[0] || ""
-      }${startingDateFilter ? `&startdate=${startingDateFilter}` : ""}${
-        endingDateFilter ? `&enddate=${endingDateFilter}` : ""
-      }`,
+      `http://18.237.25.116:8000/hour-billed-per-client-last-month?${clientQueryParam}&${agentsQueryParam}&${teamLeadQueryParam}&${OM_QueryParam}&${CSM_QueryParam}&startdate=${startingDateFilter}&enddate=${endingDateFilter}`,
       {
         headers: {
           accept: "application/json",

@@ -100,7 +100,7 @@ export function HighActivityChart({ agentsName, activityAvg }: any) {
   return (
     <div
       style={{
-        height: agentsName.length < 20 ? "100%" : agentsName.length * 15,
+        height: agentsName.length < 20 ? "100%" : agentsName.length * 20,
       }}
     >
       <Chart

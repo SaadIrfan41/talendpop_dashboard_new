@@ -71,6 +71,30 @@ export function MonthlyBilledClientsChart({ clientName, billableHrs }: any) {
 
     setChartData(chartData);
   }, [billableHrs, clientName]);
+
+  const chart_options = {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+        ticks: {
+          maxRotation: 90,
+          minRotation: 90,
+        },
+      },
+      y: {
+        type: "logarithmic",
+        grid: {
+          display: false,
+        },
+        stacked: false,
+        display: false,
+      },
+    },
+    responsive: true,
+  };
+
   const options = {
     // indexAxis: 'x' as const,
     barThickness: clientName.length < 200 ? 50 : 10,
@@ -112,6 +136,7 @@ export function MonthlyBilledClientsChart({ clientName, billableHrs }: any) {
     >
       <Chart
         ref={chartRef}
+        //@ts-ignore
         options={options}
         type="bar"
         data={chartData}

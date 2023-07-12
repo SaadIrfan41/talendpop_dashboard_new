@@ -5,8 +5,13 @@ import { CookieValueTypes, getCookie, hasCookie } from "cookies-next";
 import { ChevronDown, ChevronUp, Search, X } from "lucide-react";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Skeleton } from "../ui/skeleton";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
+import useClickOutside from "@/utils/useClickOutside";
 
 const CSMNameFilter = () => {
+  const [animateRef] = useAutoAnimate();
+  const clickOutsideRef = useRef<HTMLDivElement>(null);
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["CSM-names-for-filter"],
     queryFn: () => getCSMNames(),
@@ -49,6 +54,9 @@ const CSMNameFilter = () => {
     }
   }, [data]);
 
+  useClickOutside(clickOutsideRef, () => {
+    setshowModal(false);
+  });
   const handleAlphabetClick = (alphabet: any) => {
     setSelectedAlphabet(alphabet);
 
@@ -171,7 +179,7 @@ const CSMNameFilter = () => {
   if (isLoading)
     return (
       <>
-        <Skeleton className=" relative  h-9 w-24 rounded-full  border bg-slate-200  font-bold text-[#163143]" />
+        <Skeleton className=" relative  h-8 w-24 rounded-full  border bg-slate-200  font-bold text-[#163143]" />
       </>
     );
 
@@ -185,8 +193,9 @@ const CSMNameFilter = () => {
   }
   //   console.log(filteredData);
   return (
-    <div style={{ zIndex: 10 }}>
+    <div ref={animateRef} style={{ zIndex: 10 }}>
       <button
+        disabled={showModal}
         onClick={() => setshowModal(!showModal)}
         className=" relative flex items-center rounded-full border p-1  pl-3 text-sm font-bold text-[#163143]"
       >
@@ -196,10 +205,15 @@ const CSMNameFilter = () => {
             {selectedNames.length}
           </span>
         )}
-        {showModal ? <ChevronUp /> : <ChevronDown />}
+        <div ref={animateRef}>
+          {showModal ? <ChevronUp /> : <ChevronDown />}
+        </div>
       </button>
       {showModal && (
-        <div className=" absolute mx-auto min-w-[550px] max-w-xl  rounded-3xl  bg-white shadow-2xl">
+        <div
+          ref={clickOutsideRef}
+          className=" absolute mx-auto mt-2 min-w-[550px] max-w-xl  rounded-3xl  bg-white shadow-2xl"
+        >
           <div className="  p-2 ">
             <div>
               <div className="mt-1 flex h-7 gap-x-2  rounded-full">
