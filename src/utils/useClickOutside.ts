@@ -15,5 +15,5 @@ export default function useClickOutside(ref: any, fun: any) {
       document.removeEventListener("mousedown", listener);
       document.removeEventListener("touchstart", listener);
     };
-  }, [ref]);
+  }, [fun, ref]);
 }
