@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as jose from "jose";
-export async function middleware(request: NextRequest, response: NextResponse) {
+export async function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
   const hasCookie = request.cookies.get("talentPOP_token")?.value;
 
@@ -16,10 +16,10 @@ export async function middleware(request: NextRequest, response: NextResponse) {
     if (decodedToken.exp) {
       if (decodedToken.exp < currentTime) {
         console.log("Token is expired");
-        request.cookies.delete("talentPOP_token");
-        return NextResponse.redirect(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/login`
-        );
+        const response = NextResponse.redirect(new URL("/login", request.url));
+        response.cookies.delete("talentPOP_token");
+        response.cookies.delete("talentPOP_token");
+        return response;
       } else {
         console.log("Token is not expired");
         return;
