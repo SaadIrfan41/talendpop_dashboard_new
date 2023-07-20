@@ -1,34 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TalendPop Dashboard
 
-## Getting Started
+A brief description of what this project does and who it's for
 
-First, run the development server:
+## Live Link
+
+http://34.219.30.134:3000/
+
+## Introduction
+
+- This documentation provides an overview and details for the TalendPop Dashboard repository, available at https://github.com/SaadIrfan41/talendpop_dashboard_new. The repository contains a web-based dashboard application developed using various technologies.
+
+## Table of Contents
+
+- Overview
+- Technology Stack
+- Installation
+- Features
+- License
+
+## Overview
+
+- The TalendPop Dashboard is a web application designed to display and visualize data using interactive charts, graphs, and other components. It provides users with an intuitive interface to analyze data from various sources and gain insights through data-driven decisions. The dashboard is built using popular web development technologies and frameworks.
+
+## Technology Stack
+
+The TalendPop Dashboard project utilizes the following technology stack:
+
+### Frontend:
+
+- Next.js: A React framework for server-side rendering and static web applications.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+
+### Data Fetching:
+
+- **React Query:** A powerful data fetching library for React applications. It simplifies data fetching, caching, and synchronization with the server.
+
+### Data Visualization:
+
+- **Chart.js:** A popular JavaScript library for creating interactive and visually appealing charts, graphs, and data visualizations.
+
+## Installation
+
+- To install the TalendPop Dashboard application, follow these steps:
+
+  - Clone the repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone Your Repo Link
+```
+
+- Navigate to the project directory:
+
+```bash
+cd talendpop_dashboard_new
+```
+
+- Install the required dependencies using pnpm
+
+```bash
+pnpm install
+
+```
+
+- Run the application:
+
+```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### The application should now be accessible at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- After installing and running the application, you can access the TalendPop Dashboard in your web browser. The dashboard provides a user-friendly interface with various data visualization components. Users can interact with the charts and graphs to explore the data and customize the dashboard according to their requirements.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+The TalendPop Dashboard comes with a set of features that enable users to perform data analysis efficiently. Some of the key features include:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Data Visualization:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Interactive charts, graphs, and data tables to visually represent data.
 
-## Deploy on Vercel
+#### Data Filtering:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Ability to filter data based on different criteria to focus on specific aspects.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Data Insights:
+
+- Gain meaningful insights from the visualized data.
+
+#### Customization:
+
+- Customize the dashboard layout and components based on user preferences.
+
+## Conclusion
+
+This concludes the documentation for the TalendPop Dashboard repository. The application provides a powerful tool for visualizing and analyzing data with ease. If you have any questions or need further assistance, please feel free to reach out to the repository owner or contributors. Happy analyzing!
